@@ -187,14 +187,29 @@ ${items}
                     </table>`
           : '';
 
-        return `            <!-- 2 SPALTEN (BILD LINKS) FLUID HYBRID -->
+        return `            <!-- 2 SPALTEN (BILD LINKS) FLUID HYBRID & OUTLOOK-SAFE -->
             <tr>
               <td style="padding:0;">
                 <!--[if (gte mso 9)|(IE)]>
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
                 <tr>
-                <td width="240" valign="top">
+                <td width="240" valign="top" style="width:240px;padding:0 0 16px 0;">
+                  ${mediaHtml}
+                </td>
+                <td width="20" style="width:20px;font-size:1px;line-height:1px;">&nbsp;</td>
+                <td width="276" valign="top" style="width:276px;padding:0 0 16px 0;">
+                  <h3 class="nl-font" style="margin:0 0 8px 0;font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:bold;line-height:130%;color:#000000;">
+                    ${escapeHtml(replacePersonalization(node.heading))}
+                  </h3>
+                  <p class="nl-font" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:normal;line-height:150%;color:#000000;">
+                    ${formatInlineLinks(escapeHtml(replacePersonalization(node.paragraph)))}
+                  </p>
+                  ${btnHtml}
+                </td>
+                </tr>
+                </table>
                 <![endif]-->
+                <!--[if !mso]><!-->
                 <table role="presentation" class="nl-col-left" align="left" width="46%" cellpadding="0" cellspacing="0" border="0" style="width:46%;max-width:100%;border-collapse:collapse;">
                   <tr>
                     <td valign="top" style="padding:0 0 16px 0;">
@@ -202,11 +217,6 @@ ${items}
                     </td>
                   </tr>
                 </table>
-                <!--[if (gte mso 9)|(IE)]>
-                </td>
-                <td width="20" style="width:20px;font-size:1px;">&nbsp;</td>
-                <td width="276" valign="top">
-                <![endif]-->
                 <table role="presentation" class="nl-col-right" align="right" width="50%" cellpadding="0" cellspacing="0" border="0" style="width:50%;max-width:100%;border-collapse:collapse;">
                   <tr>
                     <td valign="top" style="padding:0 0 16px 0;">
@@ -220,11 +230,7 @@ ${items}
                     </td>
                   </tr>
                 </table>
-                <!--[if (gte mso 9)|(IE)]>
-                </td>
-                </tr>
-                </table>
-                <![endif]-->
+                <!--<![endif]-->
               </td>
             </tr>`;
       }
@@ -255,14 +261,29 @@ ${items}
                     </table>`
           : '';
 
-        return `            <!-- 2 SPALTEN (BILD RECHTS) FLUID HYBRID -->
+        return `            <!-- 2 SPALTEN (BILD RECHTS) FLUID HYBRID & OUTLOOK-SAFE -->
             <tr>
               <td style="padding:0;">
                 <!--[if (gte mso 9)|(IE)]>
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
                 <tr>
-                <td width="276" valign="top">
+                <td width="276" valign="top" style="width:276px;padding:0 0 16px 0;">
+                  <h3 class="nl-font" style="margin:0 0 8px 0;font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:bold;line-height:130%;color:#000000;">
+                    ${escapeHtml(replacePersonalization(node.heading))}
+                  </h3>
+                  <p class="nl-font" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:normal;line-height:150%;color:#000000;">
+                    ${formatInlineLinks(escapeHtml(replacePersonalization(node.paragraph)))}
+                  </p>
+                  ${btnHtml}
+                </td>
+                <td width="20" style="width:20px;font-size:1px;line-height:1px;">&nbsp;</td>
+                <td width="240" valign="top" style="width:240px;padding:0 0 16px 0;">
+                  ${mediaHtml}
+                </td>
+                </tr>
+                </table>
                 <![endif]-->
+                <!--[if !mso]><!-->
                 <table role="presentation" class="nl-col-right" align="left" width="50%" cellpadding="0" cellspacing="0" border="0" style="width:50%;max-width:100%;border-collapse:collapse;">
                   <tr>
                     <td valign="top" style="padding:0 0 16px 0;">
@@ -276,11 +297,6 @@ ${items}
                     </td>
                   </tr>
                 </table>
-                <!--[if (gte mso 9)|(IE)]>
-                </td>
-                <td width="20" style="width:20px;font-size:1px;">&nbsp;</td>
-                <td width="240" valign="top">
-                <![endif]-->
                 <table role="presentation" class="nl-col-left" align="right" width="46%" cellpadding="0" cellspacing="0" border="0" style="width:46%;max-width:100%;border-collapse:collapse;">
                   <tr>
                     <td valign="top" style="padding:0 0 16px 0;">
@@ -288,11 +304,7 @@ ${items}
                     </td>
                   </tr>
                 </table>
-                <!--[if (gte mso 9)|(IE)]>
-                </td>
-                </tr>
-                </table>
-                <![endif]-->
+                <!--<![endif]-->
               </td>
             </tr>`;
       }
@@ -539,6 +551,15 @@ ${items}
   <style type="text/css">
     body, table, td, p, a, li, blockquote, h1, h2, h3, h4, h5, h6, span, strong, b {
       font-family: Arial, Helvetica, sans-serif !important;
+    }
+    .nl-specs-mobile, .nl-mobile-only {
+      mso-hide: all !important;
+      display: none !important;
+      font-size: 0 !important;
+      line-height: 0 !important;
+      height: 0 !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
     }
   </style>
   <![endif]-->
